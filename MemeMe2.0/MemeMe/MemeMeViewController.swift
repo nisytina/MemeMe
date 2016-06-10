@@ -286,6 +286,11 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         meme = Meme(topText:top.text!, bottomText:bottom.text!, image: imagePickerView.image, memedimage: self.memedImage)
         
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
+        
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
@@ -298,10 +303,12 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
             if completed {
                 self.save()
                 self.dismissViewControllerAnimated(true, completion: nil)
+                
             }
         }
         
-        self.presentViewController(activity, animated: true, completion: nil)
+       self.presentViewController(activity, animated: true, completion: nil)
+        
 
     }
     
