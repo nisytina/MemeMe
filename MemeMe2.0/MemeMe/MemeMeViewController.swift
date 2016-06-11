@@ -303,7 +303,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
             if completed {
                 self.save()
                 self.dismissViewControllerAnimated(true, completion: nil)
-                
             }
         }
         

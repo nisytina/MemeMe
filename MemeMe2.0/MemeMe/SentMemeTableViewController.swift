@@ -17,7 +17,6 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidAppear(animated: Bool) {
-        print(self.memes)
         tableView.reloadData()
     }
     
