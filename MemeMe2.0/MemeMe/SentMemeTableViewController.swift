@@ -16,14 +16,11 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     @IBOutlet weak var tableView: UITableView!
     
+    
+    
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
     }
-    
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        cellNum = self.memes.count
-//    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
@@ -40,6 +37,18 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        
+        
+        //Grab an instance of the DetailViewController from the storyboard
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailTableViewController") as! MemeDetailTableViewController
+        
+        //Populate view controller with data according to the selected cell
+        detailController.meme = self.memes[indexPath.row]
+        print(detailController.meme)
+        
+        //Present the view controller using navigation
+        self.navigationController?.pushViewController(detailController, animated: true)
+//
     }
     
     

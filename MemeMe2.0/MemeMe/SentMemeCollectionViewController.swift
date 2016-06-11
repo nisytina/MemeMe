@@ -15,6 +15,19 @@ class SentMemeCollectionViewController: UIViewController, UICollectionViewDelega
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
+     // MARK: FIXME
+    override func viewDidLoad() {
+       
+        super.viewDidLoad()
+        let space: CGFloat = 2.0
+        let dimension = (view.frame.size.width - space) / 3.0
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = 2 * space
+        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+    }
     
     override func viewDidAppear(animated: Bool) {
         
@@ -37,9 +50,18 @@ class SentMemeCollectionViewController: UIViewController, UICollectionViewDelega
         
     }
     
-//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        
-//    }
-//    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        //Grab an instance of the DetailViewController from the storyboard
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailTableViewController") as! MemeDetailTableViewController
+        
+        //Populate view controller with data according to the selected cell
+        detailController.meme = self.memes[indexPath.row]
+        print(detailController.meme)
+        
+        //Present the view controller using navigation
+        self.navigationController?.pushViewController(detailController, animated: true)
+    }
+
     
 }
