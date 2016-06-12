@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -41,37 +40,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeImageCell" rowHeight="108" id="oBH-bq-bt4">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeImageCell" textLabel="wLO-B5-FCf" rowHeight="108" style="IBUITableViewCellStyleDefault" id="oBH-bq-bt4">
                                         <rect key="frame" x="0.0" y="92" width="600" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oBH-bq-bt4" id="v8U-43-kt9">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="107.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5FW-dU-2j2">
-                                                    <rect key="frame" x="8" y="0.0" width="107" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="dDU-lG-a8j"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-q6-0Ll">
-                                                    <rect key="frame" x="123" y="0.0" width="469" height="108"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wLO-B5-FCf">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="107.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="5FW-dU-2j2" firstAttribute="leading" secondItem="v8U-43-kt9" secondAttribute="leadingMargin" id="GAw-yy-HV6"/>
-                                                <constraint firstItem="5FW-dU-2j2" firstAttribute="centerY" secondItem="v8U-43-kt9" secondAttribute="centerY" constant="-4" id="HWg-5T-hbM"/>
-                                                <constraint firstItem="8K5-q6-0Ll" firstAttribute="top" secondItem="v8U-43-kt9" secondAttribute="topMargin" constant="-8" id="JbP-FJ-rkX"/>
-                                                <constraint firstItem="5FW-dU-2j2" firstAttribute="centerX" secondItem="v8U-43-kt9" secondAttribute="centerX" constant="-238.5" id="OfS-QV-KE4"/>
-                                                <constraint firstItem="8K5-q6-0Ll" firstAttribute="trailing" secondItem="v8U-43-kt9" secondAttribute="trailingMargin" id="YYP-VQ-Fsd"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="5FW-dU-2j2" secondAttribute="bottom" id="edW-he-iRk"/>
-                                                <constraint firstItem="8K5-q6-0Ll" firstAttribute="leading" secondItem="5FW-dU-2j2" secondAttribute="trailing" constant="8" symbolic="YES" id="khF-u1-oFt"/>
-                                                <constraint firstItem="8K5-q6-0Ll" firstAttribute="centerY" secondItem="v8U-43-kt9" secondAttribute="centerY" id="lAL-3Y-evV"/>
-                                                <constraint firstItem="5FW-dU-2j2" firstAttribute="width" secondItem="v8U-43-kt9" secondAttribute="height" multiplier="129:152" constant="15.34210526315789" id="sXM-3z-1Ad"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -374,6 +357,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6wu-Pi-ZWF"/>
+        <segue reference="Uih-a2-9ke"/>
     </inferredMetricsTieBreakers>
 </document>
