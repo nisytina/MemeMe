@@ -74,7 +74,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Table" id="RNs-XU-bSx"/>
                     <navigationItem key="navigationItem" title="Sent Memes" id="S8y-Fq-kZ8">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="R41-eB-jSN"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LbG-Wa-6q7">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="Uih-a2-9ke"/>
@@ -200,7 +199,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Grid" id="U3u-1f-Kl2"/>
                     <navigationItem key="navigationItem" title="Sent Memes" id="Acp-F1-G5x">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="8sf-Oh-pUa"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KWb-Ds-W7T">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="6wu-Pi-ZWF"/>
@@ -245,11 +243,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NCh-vI-Gce">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NCh-vI-Gce">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CHOOSE A PHOTO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13w-qO-Ou1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE A PHOTO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13w-qO-Ou1">
                                 <rect key="frame" x="224" y="345" width="152.5" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -279,7 +277,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" misplaced="YES" restorationIdentifier="top" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="CA2-k2-moQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" restorationIdentifier="top" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="CA2-k2-moQ">
                                 <rect key="frame" x="20" y="80" width="560" height="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -357,6 +355,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Uih-a2-9ke"/>
+        <segue reference="6wu-Pi-ZWF"/>
     </inferredMetricsTieBreakers>
 </document>

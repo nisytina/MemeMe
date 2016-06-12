@@ -16,10 +16,19 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     @IBOutlet weak var tableView: UITableView!
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.leftBarButtonItem = editButtonItem()
+        
+    }
     
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
+    }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,9 +70,7 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
         }
-        else if editingStyle == .Insert {
-            
-        }
+        
     }
     
     
