@@ -34,6 +34,7 @@ class SentMemeCollectionViewController: UIViewController, UICollectionViewDelega
         collectionView.reloadData()
     }
     
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.memes.count
     }
@@ -43,9 +44,8 @@ class SentMemeCollectionViewController: UIViewController, UICollectionViewDelega
         let meme = memes[indexPath.row]
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeImageCell", forIndexPath: indexPath) as! CustomMemeCell
-        
+        cell.image.image = meme.image
         cell.setText(meme.topText!, bottom: meme.bottomText!)
-        cell.image.image = meme.memedimage
         return cell
         
     }
@@ -57,7 +57,6 @@ class SentMemeCollectionViewController: UIViewController, UICollectionViewDelega
         
         //Populate view controller with data according to the selected cell
         detailController.meme = self.memes[indexPath.row]
-        print(detailController.meme)
         
         //Present the view controller using navigation
         self.navigationController?.pushViewController(detailController, animated: true)

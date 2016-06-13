@@ -37,9 +37,10 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeImageCell")!
-        cell.imageView?.image = self.memes[indexPath.row].memedimage
-        cell.textLabel?.text = self.memes[indexPath.row].topText! + " " + self.memes[indexPath.row].bottomText!
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeImageCell") as! CustomTableCell
+        cell.layoutSubviews()
+        cell.MemeImageCell.image = self.memes[indexPath.row].image
+        cell.MemeLabel.text = self.memes[indexPath.row].topText! + " " + self.memes[indexPath.row].bottomText!
         
         return cell
     }

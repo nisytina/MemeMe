@@ -42,6 +42,10 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         setTextFieldAttribute(top)
         setTextFieldAttribute(bottom)
         
+        self.top.hidden = true
+        self.bottom.hidden = true
+        saveToolBar.hidden = true
+        
         //When the viewController is presented from table or collection viw controller
         if editFromViews == true {
             editMode()
@@ -49,11 +53,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
             bottom.text = bottomText
             imagePickerView.image = image
             pickToolBar.hidden = false
-        }
-        else{
-            self.top.hidden = true
-            self.bottom.hidden = true
-            saveToolBar.hidden = true
         }
         
     }
