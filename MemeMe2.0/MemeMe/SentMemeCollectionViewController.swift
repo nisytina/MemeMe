@@ -27,7 +27,6 @@ class SentMemeCollectionViewController: UIViewController, UICollectionViewDelega
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = 2 * space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
-        //navigationItem.leftBarButtonItem = editButtonItem()
     }
     
     override func viewDidAppear(animated: Bool) {

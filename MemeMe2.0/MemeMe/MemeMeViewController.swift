@@ -26,6 +26,11 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     var topEditing = false
     var bottomEditing = false
     var keyboardToggle = 0
+    var editFromViews = false
+    var image: UIImage!
+    var topText: String!
+    var bottomText: String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +41,20 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         // MARK: abstract setting textfield attribute into a function
         setTextFieldAttribute(top)
         setTextFieldAttribute(bottom)
-
-        self.top.hidden = true
-        self.bottom.hidden = true
-        saveToolBar.hidden = true
+        
+        //When the viewController is presented from table or collection viw controller
+        if editFromViews == true {
+            editMode()
+            top.text = topText
+            bottom.text = bottomText
+            imagePickerView.image = image
+            pickToolBar.hidden = false
+        }
+        else{
+            self.top.hidden = true
+            self.bottom.hidden = true
+            saveToolBar.hidden = true
+        }
         
     }
     
@@ -213,20 +228,26 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
+    func editMode () {
+        
+        initForEditing()
+        top.hidden = false
+        bottom.hidden = false
+        //set saveToolBar's height back to 44 when the orientation is Landscape
+        let orient = UIApplication.sharedApplication().statusBarOrientation
+        setToolBarFrame(orient)
+        saveToolBar.hidden = false
+        pickLabel.hidden = true
+        
+    }
+    
     //pick an image as the original one
     func imagePickerController(picker: UIImagePickerController,
                                  didFinishPickingMediaWithInfo info: [String : AnyObject]){
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
         imagePickerView.image = image
-            initForEditing()
-            top.hidden = false
-            bottom.hidden = false
-            //set saveToolBar's height back to 44 when the orientation is Landscape
-            let orient = UIApplication.sharedApplication().statusBarOrientation
-            setToolBarFrame(orient)
-            saveToolBar.hidden = false
-            pickLabel.hidden = true
+            editMode()
             
     }
         
@@ -319,6 +340,8 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         saveToolBar.hidden = true
         pickLabel.hidden = false
         imagePickerView.image = nil
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     

@@ -50,8 +50,6 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         //Populate view controller with data according to the selected cell
         detailController.meme = self.memes[indexPath.row]
-        print(detailController.meme)
-        
         //Present the view controller using navigation
         self.navigationController?.pushViewController(detailController, animated: true)
 //
