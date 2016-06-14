@@ -49,17 +49,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Edq-gZ-8S2">
-                                                    <rect key="frame" x="8" y="0.0" width="131" height="90"/>
+                                                    <rect key="frame" x="8" y="0.0" width="137" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="d7Z-Hf-trO"/>
-                                                        <constraint firstAttribute="width" constant="131" id="euv-7I-cSd"/>
-                                                        <constraint firstAttribute="width" secondItem="Edq-gZ-8S2" secondAttribute="height" multiplier="1:1" constant="41" id="kXh-gZ-Lc3"/>
+                                                        <constraint firstAttribute="width" constant="137" id="euv-7I-cSd"/>
+                                                        <constraint firstAttribute="width" secondItem="Edq-gZ-8S2" secondAttribute="height" multiplier="1:1" constant="47" id="kXh-gZ-Lc3"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="MemeLabel" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dco-cC-eNy">
-                                                    <rect key="frame" x="147" y="34" width="445" height="21"/>
+                                                    <rect key="frame" x="153" y="34" width="439" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="445" id="N4x-YX-zBS"/>
+                                                        <constraint firstAttribute="width" constant="439" id="N4x-YX-zBS"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -68,15 +68,20 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="dco-cC-eNy" firstAttribute="centerY" secondItem="Edq-gZ-8S2" secondAttribute="centerY" id="Cei-jw-Tz9"/>
-                                                <constraint firstItem="dco-cC-eNy" firstAttribute="width" secondItem="v8U-43-kt9" secondAttribute="height" multiplier="89:18" id="NIF-Wk-A6r"/>
+                                                <constraint firstItem="dco-cC-eNy" firstAttribute="width" secondItem="v8U-43-kt9" secondAttribute="height" multiplier="89:18" constant="-6" id="NIF-Wk-A6r"/>
                                                 <constraint firstItem="Edq-gZ-8S2" firstAttribute="leading" secondItem="v8U-43-kt9" secondAttribute="leading" constant="8" id="Oaf-Vu-kF7"/>
                                                 <constraint firstItem="Edq-gZ-8S2" firstAttribute="top" secondItem="v8U-43-kt9" secondAttribute="top" id="WKu-eG-Pny"/>
-                                                <constraint firstItem="dco-cC-eNy" firstAttribute="leading" secondItem="v8U-43-kt9" secondAttribute="leadingMargin" constant="139" id="ecq-G2-oJp"/>
+                                                <constraint firstItem="dco-cC-eNy" firstAttribute="leading" secondItem="v8U-43-kt9" secondAttribute="leadingMargin" constant="145" id="ecq-G2-oJp"/>
                                                 <constraint firstItem="dco-cC-eNy" firstAttribute="trailing" secondItem="v8U-43-kt9" secondAttribute="trailingMargin" id="iLX-Zy-uo0"/>
                                                 <constraint firstItem="dco-cC-eNy" firstAttribute="top" secondItem="v8U-43-kt9" secondAttribute="topMargin" constant="26" id="rVS-r2-xWP"/>
                                                 <constraint firstItem="dco-cC-eNy" firstAttribute="leading" secondItem="Edq-gZ-8S2" secondAttribute="trailing" constant="8" symbolic="YES" id="vW0-hm-0hM"/>
                                             </constraints>
                                             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="vW0-hm-0hM"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>

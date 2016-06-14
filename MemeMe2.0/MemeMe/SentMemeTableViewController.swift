@@ -38,7 +38,8 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeImageCell") as! CustomTableCell
-        cell.layoutSubviews()
+        cell.MemeImageCell.autoresizesSubviews = false
+        cell.MemeImageCell.autoresizingMask = .None
         cell.MemeImageCell.image = self.memes[indexPath.row].image
         cell.MemeLabel.text = self.memes[indexPath.row].topText! + " " + self.memes[indexPath.row].bottomText!
         
@@ -59,6 +60,7 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
     // Override to support conditional editing of the table view.
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
+        
         return true
     }
     
