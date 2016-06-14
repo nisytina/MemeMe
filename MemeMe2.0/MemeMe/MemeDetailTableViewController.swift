@@ -22,6 +22,7 @@ class MemeDetailTableViewController: UIViewController {
             style: UIBarButtonItemStyle.Plain,
             target: self,
             action: #selector(MemeDetailTableViewController.editMeme))
+        self.tabBarController?.tabBar.hidden = true
     }
     
     func editMeme() {
@@ -42,6 +43,12 @@ class MemeDetailTableViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.imageView!.image = meme.memedimage
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.hidden = false
+
     }
     
     

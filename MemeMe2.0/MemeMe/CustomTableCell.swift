@@ -12,6 +12,12 @@ class CustomTableCell: UITableViewCell {
     
     @IBOutlet weak var MemeImageCell: UIImageView!
     @IBOutlet var MemeLabel :UILabel!
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        MemeImageCell.frame = CGRectMake(8, 0, 137, 90)
+        MemeLabel.frame.origin.x = 153
+    }
 
     
     
