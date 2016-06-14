@@ -22,10 +22,10 @@ class SentMemeCollectionViewController: UIViewController, UICollectionViewDelega
        
         super.viewDidLoad()
         let space: CGFloat = 2.0
-        let dimension = (view.frame.size.width - space) / 3.0
+        let dimension = (view.frame.size.width - 2 * space) / 3.0
         
         flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = 2 * space
+        flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }
     

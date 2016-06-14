@@ -56,7 +56,7 @@
                                                         <constraint firstAttribute="width" secondItem="Edq-gZ-8S2" secondAttribute="height" multiplier="1:1" constant="47" id="kXh-gZ-Lc3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="MemeLabel" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dco-cC-eNy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="MemeLabel" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dco-cC-eNy">
                                                     <rect key="frame" x="153" y="34" width="439" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="439" id="N4x-YX-zBS"/>
@@ -64,9 +64,20 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="uqr-yx-mSe">
+                                                    <rect key="frame" x="28" y="8" width="97" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="1Sc-xB-YtE">
+                                                    <rect key="frame" x="28" y="52" width="97" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="dco-cC-eNy" firstAttribute="centerY" secondItem="Edq-gZ-8S2" secondAttribute="centerY" id="Cei-jw-Tz9"/>
+                                                <constraint firstItem="dco-cC-eNy" firstAttribute="trailing" secondItem="v8U-43-kt9" secondAttribute="trailingMargin" id="NBv-IC-aM2"/>
                                                 <constraint firstItem="dco-cC-eNy" firstAttribute="width" secondItem="v8U-43-kt9" secondAttribute="height" multiplier="89:18" constant="-6" id="NIF-Wk-A6r"/>
                                                 <constraint firstItem="Edq-gZ-8S2" firstAttribute="leading" secondItem="v8U-43-kt9" secondAttribute="leading" constant="8" id="Oaf-Vu-kF7"/>
                                                 <constraint firstItem="Edq-gZ-8S2" firstAttribute="top" secondItem="v8U-43-kt9" secondAttribute="top" id="WKu-eG-Pny"/>
@@ -87,7 +98,9 @@
                                         <connections>
                                             <outlet property="MemeImageCell" destination="Edq-gZ-8S2" id="GZG-Fq-zz5"/>
                                             <outlet property="MemeLabel" destination="dco-cC-eNy" id="z1m-p0-VXL"/>
+                                            <outlet property="bottomText" destination="1Sc-xB-YtE" id="te8-Gq-CyQ"/>
                                             <outlet property="textLabel" destination="dco-cC-eNy" id="Ff7-M3-WPa"/>
+                                            <outlet property="topText" destination="uqr-yx-mSe" id="K8i-ll-NDX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

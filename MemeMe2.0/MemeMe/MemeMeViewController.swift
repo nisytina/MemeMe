@@ -52,7 +52,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
             top.text = topText
             bottom.text = bottomText
             imagePickerView.image = image
-            pickToolBar.hidden = false
+            pickToolBar.hidden = true
         }
         
     }

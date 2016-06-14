@@ -42,6 +42,8 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
         cell.MemeImageCell.autoresizingMask = .None
         cell.MemeImageCell.image = self.memes[indexPath.row].image
         cell.MemeLabel.text = self.memes[indexPath.row].topText! + " " + self.memes[indexPath.row].bottomText!
+        cell.topText.text = self.memes[indexPath.row].topText!
+        cell.bottomText.text = self.memes[indexPath.row].bottomText!
         
         return cell
     }
