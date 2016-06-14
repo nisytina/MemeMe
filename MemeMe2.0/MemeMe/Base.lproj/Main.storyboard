@@ -48,7 +48,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Edq-gZ-8S2">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Edq-gZ-8S2">
                                                     <rect key="frame" x="8" y="0.0" width="137" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="d7Z-Hf-trO"/>
@@ -138,7 +138,7 @@
         <scene sceneID="Hea-VW-PEJ">
             <objects>
                 <navigationController id="j4b-Cq-ec1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" id="N1I-li-8rq"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="table" selectedImage="table" id="N1I-li-8rq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pAy-Hs-LCo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -290,7 +290,7 @@
         <scene sceneID="YQS-WB-MmK">
             <objects>
                 <navigationController id="8Sj-tV-vKA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Grid" id="GIP-Co-pFc"/>
+                    <tabBarItem key="tabBarItem" title="Grid" image="grid" selectedImage="grid" id="GIP-Co-pFc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fro-bb-dYS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -426,6 +426,10 @@
             <point key="canvasLocation" x="1720" y="523"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="grid" width="30" height="30"/>
+        <image name="table" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Uih-a2-9ke"/>
     </inferredMetricsTieBreakers>
