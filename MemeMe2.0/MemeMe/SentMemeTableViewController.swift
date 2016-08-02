@@ -18,8 +18,14 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = editButtonItem()
+//        navigationItem.leftBarButtonItem = editButtonItem()
+//        enableEdit(memes.count)
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        enableEdit(memes.count)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -29,6 +35,20 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView.setEditing(editing, animated: animated)
+    }
+    
+    func enableEdit(memesCount: Int) {
+        if memesCount == 0 {
+            if navigationItem.leftBarButtonItem?.title == "Done" {
+                navigationItem.leftBarButtonItem?.enabled = true
+            } else {
+                navigationItem.leftBarButtonItem?.enabled = false
+            }
+        }
+        else{
+            navigationItem.leftBarButtonItem = editButtonItem()
+            navigationItem.leftBarButtonItem?.enabled = true
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,8 +91,7 @@ class SentMemeTableViewController: UIViewController, UITableViewDelegate, UITabl
             // Delete the row from the data source
             (UIApplication.sharedApplication().delegate as!AppDelegate).memes.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
-        }
+            }
         
     }
     

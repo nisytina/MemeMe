@@ -56,7 +56,7 @@
                                                         <constraint firstAttribute="width" secondItem="Edq-gZ-8S2" secondAttribute="height" multiplier="1:1" constant="47" id="kXh-gZ-Lc3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="MemeLabel" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dco-cC-eNy">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="MemeLabel" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dco-cC-eNy">
                                                     <rect key="frame" x="153" y="34" width="439" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="439" id="N4x-YX-zBS"/>
@@ -181,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZm-Gt-8yg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2623" y="530"/>
+            <point key="canvasLocation" x="1727" y="571"/>
         </scene>
         <!--Sent Memes-->
         <scene sceneID="4TI-kN-kIg">
@@ -418,12 +418,13 @@
                         <outlet property="pickLabel" destination="13w-qO-Ou1" id="ZPu-wf-2HW"/>
                         <outlet property="pickToolBar" destination="SPG-ys-E3t" id="zFp-h6-EaQ"/>
                         <outlet property="saveToolBar" destination="Alh-WH-Tek" id="rHe-Mu-LWZ"/>
+                        <outlet property="shareButton" destination="iv8-st-O2d" id="LwB-xw-n3D"/>
                         <outlet property="top" destination="CA2-k2-moQ" id="vLD-0l-TJx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1720" y="523"/>
+            <point key="canvasLocation" x="3012" y="571"/>
         </scene>
     </scenes>
     <resources>

@@ -21,8 +21,18 @@ class SentMemeCollectionViewController: UIViewController, UICollectionViewDelega
     override func viewDidLoad() {
        
         super.viewDidLoad()
+        let frameSize = view.frame.size
         let space: CGFloat = 2.0
-        let dimension = (view.frame.size.width - 2 * space) / 3.0
+        let dimension: CGFloat!
+        if min(frameSize.width, height: frameSize.height) == 1 {
+            dimension = (frameSize.width - 2 * space) / 3.0
+            print(frameSize.width)
+            print(frameSize.height)
+        } else {
+            dimension = (frameSize.height - 2 * space) / 3.0
+            print(frameSize.width)
+            print(frameSize.height)
+        }
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
@@ -34,6 +44,14 @@ class SentMemeCollectionViewController: UIViewController, UICollectionViewDelega
         collectionView.reloadData()
     }
     
+    func min (width: CGFloat, height: CGFloat) -> Int {
+        if width > height {
+            return 0
+        }
+        else {
+            return 1
+        }
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.memes.count

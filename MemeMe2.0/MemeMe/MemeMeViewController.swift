@@ -18,6 +18,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var saveToolBar: UIToolbar!
     @IBOutlet weak var pickToolBar: UIToolbar!
     @IBOutlet weak var pickLabel: UILabel!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     var memedImage: UIImage!
     var meme: Meme!
@@ -44,7 +45,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         self.top.hidden = true
         self.bottom.hidden = true
-        saveToolBar.hidden = true
+        self.shareButton.enabled = false
         
         //When the viewController is presented from table or collection viw controller
         if editFromViews == true {
@@ -52,7 +53,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
             top.text = topText
             bottom.text = bottomText
             imagePickerView.image = image
-            pickToolBar.hidden = true
+            pickToolBar.hidden = false
         }
         
     }
@@ -78,10 +79,12 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         topEditing = false
         bottomEditing = false
         keyboardToggle = 0
+        shareButton.enabled = true
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        //When the viewController is presented from table or collection viw controller
         subscribeToKeyboardNotifications()
         subscribeToWillHideKeyboardNotification()
     }
@@ -235,7 +238,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         //set saveToolBar's height back to 44 when the orientation is Landscape
         let orient = UIApplication.sharedApplication().statusBarOrientation
         setToolBarFrame(orient)
-        saveToolBar.hidden = false
         pickLabel.hidden = true
         
     }
@@ -336,7 +338,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         initForEditing()
         top.hidden = true
         bottom.hidden = true
-        saveToolBar.hidden = true
+        shareButton.enabled = true
         pickLabel.hidden = false
         imagePickerView.image = nil
         
