@@ -160,10 +160,8 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func setKeyboardHeight(notification: NSNotification) -> CGFloat {
-        let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         if bottomEditing {
-            return keyboardSize.CGRectValue().height
+            return self.getKeyboardHeight(notification)
         }
         else {
             return 0
@@ -187,7 +185,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
             self.bottomEditing = true
         }
-        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -228,8 +225,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-    
-    
     //pick an image as the original one
     func imagePickerController(picker: UIImagePickerController,
                                  didFinishPickingMediaWithInfo info: [String : AnyObject]){
@@ -239,7 +234,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
             editMode()
             
     }
-        
         picker.dismissViewControllerAnimated(true, completion: nil)
         
     }
@@ -271,7 +265,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     {
         //hide tool bar and nav bar
         hideToolBars(true)
-        
         
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
