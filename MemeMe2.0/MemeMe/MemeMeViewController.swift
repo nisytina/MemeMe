@@ -26,7 +26,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     var bottombeginEditing = false
     var topEditing = false
     var bottomEditing = false
-    var keyboardToggle = 0
     var editFromViews = false
     var image: UIImage!
     var topText: String!
@@ -43,9 +42,9 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         setTextFieldAttribute(top)
         setTextFieldAttribute(bottom)
         
-        self.top.hidden = true
-        self.bottom.hidden = true
-        self.shareButton.enabled = false
+        top.hidden = true
+        bottom.hidden = true
+        shareButton.enabled = false
         
         //When the viewController is presented from table or collection viw controller
         if editFromViews == true {
@@ -78,15 +77,30 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         bottombeginEditing = false
         topEditing = false
         bottomEditing = false
-        keyboardToggle = 0
         shareButton.enabled = true
+    }
+    
+    func hideToolBars(hidden: Bool) {
+        pickToolBar.hidden = hidden
+        saveToolBar.hidden = hidden
+    }
+    
+    func editMode () {
+        
+        initForEditing()
+        top.hidden = false
+        bottom.hidden = false
+        //set saveToolBar's height back to 44 when the orientation is Landscape
+        let orient = UIApplication.sharedApplication().statusBarOrientation
+        setToolBarFrame(orient)
+        pickLabel.hidden = true
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //When the viewController is presented from table or collection viw controller
-        subscribeToKeyboardNotifications()
-        subscribeToWillHideKeyboardNotification()
+        subscribeToKeyboardNotificationsAndHide()
     }
     
     override func viewDidAppear(animated: Bool){
@@ -96,27 +110,23 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        unsubscribeFromKeyboardNotifications()
-        unsubscribeToWillHideKeyboardNotification()
+        unsubscribeFromKeyboardNotificationsAndHide()
     }
     
     
-    func subscribeToKeyboardNotifications() {
-        
+    func subscribeToKeyboardNotificationsAndHide() {
+        //keyboard notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MemeMeViewController.keyboardWillShow(_:))    , name: UIKeyboardWillShowNotification, object: nil)
-    }
-    
-    func subscribeToWillHideKeyboardNotification() {
         
+        //will hide keyboard
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MemeMeViewController.keyboardWillHide(_:))    , name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    func unsubscribeFromKeyboardNotifications() {
+    func unsubscribeFromKeyboardNotificationsAndHide() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name:
             UIKeyboardWillShowNotification, object: nil)
-    }
-    
-    func unsubscribeToWillHideKeyboardNotification() {
+        
+        //hide keyboard
         NSNotificationCenter.defaultCenter().removeObserver(self, name:
             UIKeyboardWillHideNotification, object: nil)
     }
@@ -130,34 +140,23 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func keyboardWillShow(notification: NSNotification) {
         // counter increments whenever keyborad toggles
-        keyboardToggle += 1
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottom.isFirstResponder(){
+            // avoid compound increment opperator
+            view.frame.origin.y = -getKeyboardHeight(notification)
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        view.frame.origin.y += setKeyboardHeight(notification)
+        if bottom.isFirstResponder(){
+            // 0 is the original y location
+            view.frame.origin.y = 0
+        }
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
-        //if it's the first time that keyboard toggles, shift screen as planned
-        if self.keyboardToggle == 1 {
-            if bottom.editing && topEditing == false {
-                return keyboardSize.CGRectValue().height
-            }
-            else if bottom.editing && topEditing == true {
-                //when jumping to edit bottom from editing top without hitting return key
-                return 0
-            }
-            else {
-                return 0
-            }
-        }//if keyboard is already toggled: no screen shift
-        else {
-            return 0
-        }
-        
+        return keyboardSize.CGRectValue().height
     }
     
     func setKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -195,7 +194,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         textField.resignFirstResponder()
         self.topEditing = false
         self.bottomEditing = false
-        keyboardToggle = 0
         return true
     }
     
@@ -230,17 +228,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-    func editMode () {
-        
-        initForEditing()
-        top.hidden = false
-        bottom.hidden = false
-        //set saveToolBar's height back to 44 when the orientation is Landscape
-        let orient = UIApplication.sharedApplication().statusBarOrientation
-        setToolBarFrame(orient)
-        pickLabel.hidden = true
-        
-    }
+    
     
     //pick an image as the original one
     func imagePickerController(picker: UIImagePickerController,
@@ -266,9 +254,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     //pick a picture from the album
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
-        
-        let sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        pickImage(sourceType)
+        pickImage(.PhotoLibrary)
     }
     
     //pick a picture from the camera
@@ -276,8 +262,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         //if sourcetype camera is available, then the button is enabled
         if cameraButton.enabled == true {
-            let sourceType = UIImagePickerControllerSourceType.Camera
-            pickImage(sourceType)
+            pickImage(.Camera)
         }
     }
     
@@ -285,8 +270,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     func generateMemedImage() -> UIImage
     {
         //hide tool bar and nav bar
-        pickToolBar.hidden = true
-        saveToolBar.hidden = true
+        hideToolBars(true)
         
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
@@ -297,8 +281,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         UIGraphicsEndImageContext()
         
         //show tool bar and nav bar
-        pickToolBar.hidden = false
-        saveToolBar.hidden = false
+        hideToolBars(false)
         
         return memedImage
     }
@@ -327,11 +310,10 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
-        
        self.presentViewController(activity, animated: true, completion: nil)
-        
-
     }
+    
+    
     
     //hide top and bottom textfields and toolbars
     @IBAction func cancelMeme(sender: AnyObject) {
@@ -344,8 +326,5 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
-    
 }
 
