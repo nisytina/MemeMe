@@ -272,6 +272,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         //hide tool bar and nav bar
         hideToolBars(true)
         
+        
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawViewHierarchyInRect(self.view.frame,
